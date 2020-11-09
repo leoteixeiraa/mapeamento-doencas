@@ -1,6 +1,6 @@
 # Mapeamento de Doenças Crônicas
 
-> Trabalho de conclusão de curso relacionado ao mapeamento de doenças crônicas, utilizando API do google maps com sistema de marcadores coloridos para distinguir as doenças.
+Trabalho de conclusão de curso relacionado ao mapeamento de doenças crônicas, utilizando API do google maps com sistema de marcadores coloridos para distinguir as doenças.
 
 ## Instalação do projeto
 
