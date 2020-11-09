@@ -16,10 +16,10 @@ npm run build
 
 ## PrintScrenn Tela Principal
 
-![](/src/assets/tela_principal.jpg)
+![](/src/assets/tela_principal.png)
 
 
-Para mais detalhes do projeto, consulte a [documentação completa](https://leovenancio00.gitbook.io/mapeamento-doencas/) e a [documentação da API do Google Maps](https://developers.google.com/maps/documentation/javascript).
+Para mais detalhes do projeto, consulte a [documentação](https://leovenancio00.gitbook.io/mapeamento-doencas/) e a [documentação da API do Google Maps](https://developers.google.com/maps/documentation/javascript).
 
 
 ## Integrantes do Projeto
