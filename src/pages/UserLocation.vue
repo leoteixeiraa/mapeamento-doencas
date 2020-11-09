@@ -33,7 +33,12 @@ export default {
 
     mounted() {
       new google.maps.places.Autocomplete(
-        document.getElementById("autocomplete")
+        document.getElementById("autocomplete"),
+        {
+          bounds: new google.maps.LatLngBounds(
+            new google.maps.LatLng(-27.0266, -50.922)
+          )
+        }
       )
     },
 
@@ -94,5 +99,23 @@ export default {
 .dot.circle.icon {
   background-color: #ff5a5f;
   color: white;
+}
+
+.pac-icon {
+  display:none;
+}
+
+.pac-item {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pac-item:hover {
+  background: green;
+}
+
+.pac-item-query {
+  font-size: 16px;
 }
 </style>
