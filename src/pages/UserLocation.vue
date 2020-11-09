@@ -2,10 +2,10 @@
   <section class="ui two column centered grid">
     <div class="column">
       <form class="ui segment large form">
-        <div class="ui message red"></div>
+        <div class="ui message red" v-show="error">{{error}}</div>
         <div class="ui segment">
           <div class="field">
-            <div class="ui right icon input large">
+            <div class="ui right icon input large" :class="{loading:spinner}">
               <input type="text" placeholder="Seu Endereço" v-model="address" />
               <i class="dot circle link icon" @click="locatorButtonPressed"></i>
             </div>
@@ -25,12 +25,17 @@ export default {
 
     data() {
       return {
-        address: ""
+        address: "",
+        error:  "",
+        spinner: false
       }
     },
 
   methods: {
     locatorButtonPressed() {
+
+      this.spinner = true;
+
       if (navigator.geolocation) {
         //Verificação de suporte do navegador
         navigator.geolocation.getCurrentPosition(
@@ -42,10 +47,13 @@ export default {
            },
           
           error => {
-            console.log(error.message);
+            this.error = "Não conseguimos encontrar sua localização";
+            this.spinner = false;
           }
         );
       } else {
+        this.error = error.message;
+        this.spinner = false;
         console.log(
           "Seu Navegador não tem suporte de Geolocalização do Google");
       }
@@ -58,13 +66,16 @@ export default {
             "&key=AIzaSyBeYsZgDRvl1Gnn-Kbq4A1L8-Qpfb2z--w")
         .then(response => {
           if (response.data.error_message) {
+            this.error = response.data.error_message;
             console.log(response.data.error_message);
           }else{
             this.address = response.data.results[0].formatted_address
             // console.log(response.data.results[0].formatted_address);
           }
+          this.spinner = false;
         })
         .catch(error => {
+          this.error = error.message;
           console.log(error.message);
         })
     }
