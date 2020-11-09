@@ -4,14 +4,14 @@
 
 ## Instalação do projeto
 
-# Instale as Depedencias do Projetos
-npm install
+### Instale as Depedencias do Projetos
+> npm install
 
-# Compile o projeto em desenvolvimento para rodar em localhost:8080
-npm run dev
+### Compile o projeto em desenvolvimento para rodar em localhost:8080
+> npm run dev
 
-# Compile o projeto em produção para rodar em localhost:8080
-npm run build
+### Compile o projeto em produção para rodar em localhost:8080
+> npm run build
 
 ## PrintScrenn Tela Principal
 
