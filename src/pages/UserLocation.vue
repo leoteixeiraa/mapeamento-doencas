@@ -1,7 +1,9 @@
 <template>
-  <section class="ui two column centered grid">
+<div>
+  <section class="ui two column centered grid" style="position:relative;z-index:1;">
     <div class="column">
       <form class="ui segment large form">
+               <img src="https://i.imgur.com/18MKrkz.png" alt="" height="80px" srcset="">
         <div class="ui message red" v-show="error">{{error}}</div>
         <div class="ui segment">
           <div class="field">
@@ -16,6 +18,8 @@
       </form>
     </div>
   </section>
+  <section id="map"></section>
+</div>
 </template> 
 
 <script>
@@ -32,14 +36,19 @@ export default {
     },
 
     mounted() {
-      new google.maps.places.Autocomplete(
+      let autocomplete = new google.maps.places.Autocomplete(
         document.getElementById("autocomplete"),
         {
           bounds: new google.maps.LatLngBounds(
             new google.maps.LatLng(-27.0266, -50.922)
           )
-        }
-      )
+        });
+      autocomplete.addListener("place_changed", () =>  {
+          let place = autocomplete.getPlace();
+          console.log(place);
+          this.showUserLocationOnTheMap(place.geometry.location.lat(), place.geometry.location.lng())
+
+      });
     },
 
   methods: {
@@ -54,14 +63,19 @@ export default {
             //pegar localização atual do usuário
             this.getAddressFrom(
               position.coords.latitude,
-              position.coords.longitude)
-           },
+              position.coords.longitude
+              );
           
+            this.showUserLocationOnTheMap(
+              position.coords.latitude, 
+              position.coords.longitude 
+              );
+      },
           error => {
             this.error = "Não conseguimos encontrar sua localização";
             this.spinner = false;
           }
-        );
+        );  
       } else {
         this.error = error.message;
         this.spinner = false;
@@ -89,8 +103,24 @@ export default {
           this.error = error.message;
           console.log(error.message);
         })
+    },
+    showUserLocationOnTheMap(latitude, longitude) {
+        // Criar objeto de mapa
+          let map = new google.maps.Map(document.getElementById("map"),{
+            zoom: 15,
+            center: new google.maps.LatLng(latitude, longitude),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+
+        //Markadores no mapa
+        new google.maps.Marker({
+          position: new google.maps.LatLng(latitude, longitude),
+          map:map
+        })
+
     }
-  }
+  } 
 };
 </script>
 
@@ -118,4 +148,14 @@ export default {
 .pac-item-query {
   font-size: 16px;
 }
+
+#map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: red;
+}
 </style>
+
