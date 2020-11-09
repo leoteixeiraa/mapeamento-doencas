@@ -4,7 +4,6 @@
 
 ## Instalação do projeto
 
-``` bash
 # Instale as Depedencias do Projetos
 npm install
 
