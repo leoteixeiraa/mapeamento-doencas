@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import UserLocation from '@/pages/UserLocation'
+import ChronicMap from '@/pages/ChronicMap'
 
 Vue.use(Router)
 
@@ -10,6 +10,10 @@ export default new Router({
     {
       path:'/',
       component: UserLocation
+    },
+    {
+      path: '/chronic-map',
+      component: ChronicMap
     }
   ]
 })
