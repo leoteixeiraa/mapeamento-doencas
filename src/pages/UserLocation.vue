@@ -24,9 +24,7 @@
 
 <script>
 import axios from "axios"
-
 export default {
-
     data() {
       return {
         address: "",
@@ -34,7 +32,6 @@ export default {
         spinner: false
       }
     },
-
     mounted() {
       let autocomplete = new google.maps.places.Autocomplete(
         document.getElementById("autocomplete"),
@@ -47,15 +44,11 @@ export default {
           let place = autocomplete.getPlace();
           console.log(place);
           this.showUserLocationOnTheMap(place.geometry.location.lat(), place.geometry.location.lng())
-
       });
     },
-
   methods: {
     locatorButtonPressed() {
-
       this.spinner = true;
-
       if (navigator.geolocation) {
         //Verificação de suporte do navegador
         navigator.geolocation.getCurrentPosition(
@@ -111,14 +104,11 @@ export default {
             center: new google.maps.LatLng(latitude, longitude),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           });
-
-
         //Markadores no mapa
         new google.maps.Marker({
           position: new google.maps.LatLng(latitude, longitude),
           map:map
         })
-
     }
   } 
 };
@@ -130,25 +120,20 @@ export default {
   background-color: #ff5a5f;
   color: white;
 }
-
 .pac-icon {
   display:none;
 }
-
 .pac-item {
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
 }
-
 .pac-item:hover {
   background: green;
 }
-
 .pac-item-query {
   font-size: 16px;
 }
-
 #map {
   position: absolute;
   top: 0;
@@ -158,4 +143,3 @@ export default {
   background: red;
 }
 </style>
-
