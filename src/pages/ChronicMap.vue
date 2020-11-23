@@ -8,7 +8,7 @@
           height="80px"
           srcset=""
         />
-        <div class="ui message red" v-show="error">{{error}}</div>
+        <div class="ui message red" v-show="error">{{ error }}</div>
         <div class="ui segment">
           <div class="field">
             <div
@@ -29,7 +29,7 @@
             <div class="two fields">
               <div class="field">
                 <select v-model="type">
-                  <option value="diabetes">Diabetes</option>
+                  <option value="restaurant">restaurant</option>
                 </select>
               </div>
 
@@ -38,15 +38,29 @@
                   <option value="5">5KM</option>
                   <option value="10">10KM</option>
                   <option value="15">15KM</option>
-                  <option value="20">20KM</option>
+                  <option value=" 20">20KM</option>
                 </select>
               </div>
             </div>
           </div>
 
-           <button class="ui button" @click="findChronicMapButtonPressed">Procurar Doença ao Redor</button>
+          <button class="ui button" @click="findChronicMapButtonPressed">
+            Procurar Doença ao Redor
+          </button>
         </div>
       </form>
+
+      <div class="ui segment">
+        <div class="ui divided items">
+          <div class="item" v-for="place in places" :key="place.id">
+            <div class="content">
+              <div class="header">{{ place.name }}</div>
+              <div class="meta">{{ place.vicinity }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
     <div class="ten wide column blue"></div>
   </div>
@@ -64,17 +78,27 @@ export default {
       apiKey: "AIzaSyBeYsZgDRvl1Gnn-Kbq4A1L8-Qpfb2z--w",
       lat: 0,
       lng: 0,
-      type:'',
-      radius:''
+      type: "",
+      radius: "",
+      place: [],
     };
   },
 
   mounted() {
-    new google.maps.places.Autocomplete(this.$refs["autocomplete"], {
+    const autocomplete = new google.maps.places.Autocomplete(
+      this.$refs["autocomplete"],
+      {
         bounds: new google.maps.LatLngBounds(
           new google.maps.LatLng(-27.0266, -50.922)
-        )
-      });
+        ),
+      }
+    );
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+      this.address = place.formatted_address;
+      this.lat = place.geometry.location.lat();
+      this.lng = place.geometry.location.lng();
+    });
   },
 
   //   autocomplete.addListener("place_changed", () => {
@@ -94,7 +118,7 @@ export default {
       if (navigator.geolocation) {
         //Verificação de suporte do navegador
         navigator.geolocation.getCurrentPosition(
-          position => {
+          (position) => {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
 
@@ -102,9 +126,9 @@ export default {
             this.getAddressFrom(
               position.coords.latitude,
               position.coords.longitude
-            );     
+            );
           },
-          error => {
+          (error) => {
             this.error = "Não conseguimos encontrar sua localização";
             this.spinner = false;
           }
@@ -144,14 +168,24 @@ export default {
         });
     },
     findChronicMapButtonPressed() {
-      console.log(this.lat);
-      console.log(this.lng);
-      console.log(this.type);
-      console.log(this.radius);
-    },
-  }
-};
+      const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
+        this.lat
+      },${this.lng}&type=${this.type}&radius=${this.radius * 1000}&key=${
+        this.apiKey
+      }`;
 
+      axios
+        .get(URL)
+        .then((response) => {
+          this.places = response.data.results;
+          console.log(response);
+        })
+        .catch((error) => {
+          this.error = error.message;
+        });
+    },
+  },
+};
 
 //     showUserLocationOnTheMap(latitude, longitude) {
 //       // Criar objeto de mapa
