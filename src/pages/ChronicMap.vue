@@ -50,7 +50,7 @@
         </div>
       </form>
 
-      <div class="ui segment">
+      <div class="ui segment" style="max-height:300px;overflow:auto;">
         <div class="ui divided items">
           <div class="item" v-for="place in places" :key="place.id">
             <div class="content">
@@ -60,9 +60,9 @@
           </div>
         </div>
       </div>
-      
+
     </div>
-    <div class="ten wide column blue"></div>
+    <div class="ten wide column blue" ref="map"></div>
   </div>
 </template>
 
@@ -178,31 +178,28 @@ export default {
         .get(URL)
         .then((response) => {
           this.places = response.data.results;
+          this.showPlacesOnMap();
           console.log(response);
         })
         .catch((error) => {
           this.error = error.message;
         });
     },
-  },
+
+    showPlacesOnMap() { //mostrando os lugares no mapa
+
+    const map = new google.maps.Map(
+       this.$refs["map"],
+       {
+         zoom: 15,
+         center: new google.maps.LatLng(this.lat, this.lng),
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+       });
+
+    }
+  }
 };
 
-//     showUserLocationOnTheMap(latitude, longitude) {
-//       // Criar objeto de mapa
-//       let map = new google.maps.Map(document.getElementById("map"), {
-//         zoom: 15,
-//         center: new google.maps.LatLng(latitude, longitude),
-//         mapTypeId: google.maps.MapTypeId.ROADMAP,
-//       });
-
-//       //Markadores no mapa
-//       new google.maps.Marker({
-//         position: new google.maps.LatLng(latitude, longitude),
-//         map: map,
-//       });
-//     },
-//   },
-// };
 </script>
 
 <style>
