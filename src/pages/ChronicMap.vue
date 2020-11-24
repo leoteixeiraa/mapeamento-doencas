@@ -196,6 +196,15 @@ export default {
          mapTypeId: google.maps.MapTypeId.ROADMAP
        });
 
+        for(let i = 0; i < this.places.length; i++) {
+          const lat = this.places[i].geometry.location.lat;
+          const lng = this.places[i].geometry.location.lng;
+
+          const marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map
+          })
+        }
     }
   }
 };
