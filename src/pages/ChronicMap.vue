@@ -1,6 +1,6 @@
 <template>
   <div class="ui grid">
-    <div class="six wide column red">
+    <div class="six wide column green">
       <form class="ui segment large form">
         <img
           src="https://i.imgur.com/18MKrkz.png"
@@ -54,7 +54,7 @@
         <div class="ui divided items">
           <div class="item" v-for="place in places" :key="place.id">
             <div class="content">
-              <div class="header">{{ place.name }}</div>
+              <div class="header">Diabético</div>
               <div class="meta">{{ place.vicinity }}</div>
             </div>
           </div>
@@ -224,10 +224,8 @@ export default {
                 const place = response.data.result;
 
                 infoWindow.setContent(
-                  `<div class="ui header">${place.name}</div>
+                  `<div class="ui header">Diabético</div>
                   ${place.formatted_address} <br>
-                  ${place.formatted_phone_number} <br>
-                  <a href="${place.website}" target="_blank">${place.website}</a>
                   
                   
                   `
