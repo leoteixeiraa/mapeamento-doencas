@@ -50,9 +50,16 @@
         </div>
       </form>
 
-      <div class="ui segment" style="max-height:300px;overflow:auto;">
+      <div class="ui segment" style="max-height: 300px; overflow: auto">
         <div class="ui divided items">
-          <div class="item" v-for="place in places" :key="place.id">
+          <div
+            class="item"
+            v-for="(place, index) in places"
+            :key="place.id"
+            @click="showInfoWindow(index)"
+            :class="{ active: activeIndex === index }"
+            style="padding: 10px"
+          >
             <div class="content">
               <div class="header">Diabético</div>
               <div class="meta">{{ place.vicinity }}</div>
@@ -60,7 +67,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="ten wide column" ref="map"></div>
   </div>
@@ -80,7 +86,9 @@ export default {
       lng: 0,
       type: "",
       radius: "",
-      place: [],
+      places: [],
+      markers: [],
+      activeIndex: -1,
     };
   },
 
@@ -93,36 +101,18 @@ export default {
         ),
       }
     );
-    autocomplete.addListener("place_changed", () => {
-      const place = autocomplete.getPlace();
-      this.address = place.formatted_address;
-      this.lat = place.geometry.location.lat();
-      this.lng = place.geometry.location.lng();
-    });
   },
-
-  //   autocomplete.addListener("place_changed", () => {
-  //     let place = autocomplete.getPlace();
-  //     console.log(place);
-  //     this.showUserLocationOnTheMap(
-  //       place.geometry.location.lat(),
-  //       place.geometry.location.lng()
-  //     );
-  //   });
-  // },
 
   methods: {
     locatorButtonPressed() {
       this.spinner = true;
 
       if (navigator.geolocation) {
-        //Verificação de suporte do navegador
         navigator.geolocation.getCurrentPosition(
           (position) => {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
 
-            //pegar localização atual do usuário
             this.getAddressFrom(
               position.coords.latitude,
               position.coords.longitude
@@ -186,38 +176,35 @@ export default {
         });
     },
 
-    showPlacesOnMap() { //mostrando os lugares no mapa
+    showPlacesOnMap() {
+      //mostrando os lugares no mapa
 
-    const map = new google.maps.Map(
-       this.$refs["map"],
-       {
-         zoom: 15,
-         center: new google.maps.LatLng(this.lat, this.lng),
-         mapTypeId: google.maps.MapTypeId.ROADMAP
-       });
+      const map = new google.maps.Map(this.$refs["map"], {
+        zoom: 15,
+        center: new google.maps.LatLng(this.lat, this.lng),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+      });
 
-       const infoWindow = new google.maps.InfoWindow();
+      const infoWindow = new google.maps.InfoWindow();
 
-        for(let i = 0; i < this.places.length; i++) {
-          const lat = this.places[i].geometry.location.lat;
-          const lng = this.places[i].geometry.location.lng;
-          const placeID = this.places[i].place_id;
+      for (let i = 0; i < this.places.length; i++) {
+        const lat = this.places[i].geometry.location.lat;
+        const lng = this.places[i].geometry.location.lng;
+        const placeID = this.places[i].place_id;
 
-          const marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat, lng),
-            map: map
-          });
-          
-          // this.markers.push(marker);
+        const marker = new google.maps.Marker({
+          position: new google.maps.LatLng(lat, lng),
+          map: map,
+        });
 
+        this.markers.push(marker);
 
-          google.maps.event.addListener(marker, "click", () => {   
-            
-            const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${this.apiKey}&place_id=${placeID}`;
+        google.maps.event.addListener(marker, "click", () => {
+          const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${this.apiKey}&place_id=${placeID}`;
 
-                      axios
+          axios
             .get(URL)
-            .then(response => {
+            .then((response) => {
               if (response.data.error_message) {
                 this.error = response.data.error_message;
               } else {
@@ -233,7 +220,7 @@ export default {
                 infoWindow.open(map, marker);
               }
             })
-            .catch(error => {
+            .catch((error) => {
               this.error = error.message;
             });
         });
@@ -243,10 +230,9 @@ export default {
     showInfoWindow(index) {
       this.activeIndex = index;
       new google.maps.event.trigger(this.markers[index], "click");
-    }
-  }
+    },
+  },
 };
-
 </script>
 
 <style>
@@ -274,13 +260,17 @@ export default {
   font-size: 16px;
 }
 
+.active {
+  background: #68b92e !important;
+}
+
 #map {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background:#68B92E;
+  background: #68b92e;
 }
 </style>
 
