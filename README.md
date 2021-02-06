@@ -1,28 +1,21 @@
-# Mapeamento de Doenças Crônicas
+# food-delivery-app
 
-Trabalho de conclusão de curso relacionado ao mapeamento de doenças crônicas, utilizando API do google maps com sistema de marcadores coloridos para distinguir as doenças.
+> A Vue.js project
 
-## Instalação do projeto
+## Build Setup
 
-### Instale as Depedencias do Projetos
-> npm install
+``` bash
+# install dependencies
+npm install
 
-### Compile o projeto em desenvolvimento para rodar em localhost:8080
-> npm run dev
+# serve with hot reload at localhost:8080
+npm run dev
 
-### Compile o projeto em produção para rodar em localhost:8080
-> npm run build
+# build for production with minification
+npm run build
 
-## PrintScrenn Tela Principal
+# build for production and view the bundle analyzer report
+npm run build --report
+```
 
-![](/src/assets/tela_principal.png)
-
-
-Para mais detalhes do projeto, consulte a [documentação](https://leovenancio00.gitbook.io/mapeamento-doencas/) e a [documentação da API do Google Maps](https://developers.google.com/maps/documentation/javascript).
-
-
-## Integrantes do Projeto
-
-1. Leonardo Venâncio Teixeira. [Acessar Lattes](http://lattes.cnpq.br/0437092313796879)
-2. Luiz Leandro dos Reis Fortaleza [Acessar Lattes](http://lattes.cnpq.br/0374659622170312)
-3. Marlon Cordeiro Domenech [Acessar Lattes](http://lattes.cnpq.br/8493837577432710)
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
