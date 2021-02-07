@@ -40,11 +40,18 @@
         <i class="marker alternate icon"></i>
         {{ route.origin.address }}
       </div>
-      <div>
+      <!-- <div>
+        <i class="marker alternate icon"></i>
+        {{ route.origin.diabetico ? "Diabético" : "" }}
+      </div> -->
+      <!-- <div>
         <i class="marker alternate icon"></i>{{ route.destination.address }}
+      </div> -->
+      <!-- <div class="ui label small">{{ route.distance.text }}</div> -->
+
+      <div class="ui red horizontal label">
+        {{ route.origin.diabetico ? "Diabético" : "Não Diabético" }}
       </div>
-      <div class="ui label small">{{ route.distance.text }}</div>
-      <div class="ui label small">{{ route.duration.text }}</div>
     </div>
   </section>
 </template>

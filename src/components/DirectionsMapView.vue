@@ -42,7 +42,7 @@ export default {
               });
 
               this.createInfoWindowWith(origin, "marker alternate", color);
-              this.createInfoWindowWith(destination, "marker alternate", color);
+              // this.createInfoWindowWith(destination, "marker alternate", color);
 
               const overviewPath = response.routes[0].overview_path;
               const middleIndex = parseInt(overviewPath.lenght / 2);
