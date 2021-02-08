@@ -58,11 +58,7 @@ export default {
           lat: 0,
           lng: 0,
         },
-        destination: {
-          address: "",
-          lat: 0,
-          lng: 0,
-        },
+
         distance: {},
         duration: {},
       },
