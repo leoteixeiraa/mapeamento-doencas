@@ -21,7 +21,7 @@ export default {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       });
 
-      routes.forEach(({ origin, destination, distance, duration, color }) => {
+      routes.forEach(({ origin, distance, duration, destination, color }) => {
         directionsService.route(
           {
             origin: origin.address,
@@ -47,7 +47,7 @@ export default {
               const middleIndex = parseInt(overviewPath.lenght / 2);
               const middleLoc = overviewPath[middleIndex];
 
-              // distanceDurationLabel.open(this.map, null);
+              distanceDurationLabel.open(this.map, null);
 
               directionsRenderer.setDirections(response);
               directionsRenderer.setMap(this.map);
