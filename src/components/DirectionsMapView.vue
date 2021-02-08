@@ -42,21 +42,12 @@ export default {
               });
 
               this.createInfoWindowWith(origin, "marker alternate", color);
-              // this.createInfoWindowWith(destination, "marker alternate", color);
 
               const overviewPath = response.routes[0].overview_path;
               const middleIndex = parseInt(overviewPath.lenght / 2);
               const middleLoc = overviewPath[middleIndex];
 
-              const distanceDurationLabel = new google.maps.InfoWindow({
-                content: `<div style="background-color:${color};><i class="icon car"></i> ${distance.text} - ${duration.text}</div>`,
-                position: new google.maps.LatLng(
-                  middleLoc.lat(),
-                  middleLoc.lng()
-                ),
-              });
-
-              distanceDurationLabel.open(this.map, null);
+              // distanceDurationLabel.open(this.map, null);
 
               directionsRenderer.setDirections(response);
               directionsRenderer.setMap(this.map);
@@ -70,7 +61,7 @@ export default {
               );
               this.createPolylineWith(
                 [
-                  { lat: destination.lat, lng: destination.lng },
+                  { lat: origin.lat, lng: origin.lng },
                   {
                     lat: overviewPath[overviewPath.lenght - 1].lat(),
                     lng: overviewPath[overviewPath.lenght - 1].lng(),
