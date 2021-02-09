@@ -3,17 +3,6 @@
     <div class="route-list-view-header">
       <h3 class="ui header">Lista de Enfermidades</h3>
 
-      <!-- <select>
-        <option selected disabled>Selecione a Doença</option>
-
-        <option value="">Diabético</option>
-        <option value="">Hipertensão</option>
-
-        <option value="">Aids</option>
-        <option value="">insuficiência cardíaca</option>
-        <option value="">AVC</option>
-      </select> -->
-
       <select @change="sortRoute($event)">
         <option selected disabled>Ordenar</option>
         <optgroup label="Distancia">
@@ -37,20 +26,92 @@
       :style="{ 'background-color': route.color }"
     >
       <div>
-        <i class="marker alternate icon"></i>
-        {{ route.origin.address }}
+        <i class="male alternate icon"></i>
+        <b>Nome: </b
+        >{{
+          route.cadastroIndividualTransport.identificacaoUsuarioCidadao
+            .nomeCidadao
+        }}
       </div>
-      <!-- <div>
-        <i class="marker alternate icon"></i>
-        {{ route.origin.diabetico ? "Diabético" : "" }}
-      </div> -->
-      <!-- <div>
-        <i class="marker alternate icon"></i>{{ route.destination.address }}
-      </div> -->
-      <!-- <div class="ui label small">{{ route.distance.text }}</div> -->
+
+      <div>
+        <i class="address card alternate icon"></i>
+        <b>CNES: </b> {{ route.cnesDadoSerializado }}
+      </div>
+      <div>
+        <i class="pin alternate icon"></i>
+        <b>Micro Área: </b>
+        {{
+          route.cadastroIndividualTransport.identificacaoUsuarioCidadao
+            .microArea
+        }}
+      </div>
 
       <div class="ui red horizontal label">
-        {{ route.origin.diabetico ? "Diabético" : "Não Diabético" }}
+        {{
+          route.cadastroIndividualTransport.condicoesDeSaude.statusTemDiabetes
+            ? "Diabético"
+            : "Não Diabético"
+        }}
+      </div>
+
+      <a class="ui label">
+        Situação Peso
+        <div class="detail">
+          {{ route.cadastroIndividualTransport.condicoesDeSaude.situacaoPeso }}
+        </div>
+      </a>
+      <div>
+        <b>Causa da Internação: </b
+        >{{
+          route.cadastroIndividualTransport.condicoesDeSaude
+            .descricaoCausaInternacaoEm12Meses
+        }}
+      </div>
+
+      <div>
+        <b>Outras Condições: </b
+        >{{
+          route.cadastroIndividualTransport.condicoesDeSaude
+            .descricaoOutraCondicao1
+        }}&#8212;{{
+          route.cadastroIndividualTransport.condicoesDeSaude
+            .descricaoOutraCondicao2
+        }}
+      </div>
+      <div class="ui green horizontal label">
+        {{
+          route.cadastroIndividualTransport.condicoesDeSaude
+            .statusTemDoencaRespiratoria
+            ? "Tem Doença Respiratória"
+            : "Não tem Doença Respiratória"
+        }}
+      </div>
+
+      <div class="ui horizontal label">
+        {{
+          route.cadastroIndividualTransport.condicoesDeSaude.statusTemHanseniase
+            ? "Tem hanseníase"
+            : "Não tem hanseníase"
+        }}
+      </div>
+
+      <div class="ui horizontal label">
+        {{
+          route.cadastroIndividualTransport.condicoesDeSaude
+            .statusTemHipertensaoArterial
+            ? "Tem Hipertensão Arterial"
+            : "Não tem Hipertensão Arterial"
+        }}
+      </div>
+
+      <div class="ui horizontal label">
+        {{
+          route.cadastroIndividualTransport.condicoesDeSaude
+            .statusTemTuberculose
+            ? "Tem Tuberculose"
+            : "Não tem Tuberculose"
+        }}
       </div>
     </div>
   </section>

@@ -1,10 +1,9 @@
- <template>
+<template>
   <section class="map" ref="map"></section>
 </template>
 
 <script>
 import { EventBus } from "@/EventBus";
-
 export default {
   data() {
     return {
@@ -13,15 +12,13 @@ export default {
   },
   mounted() {
     const directionsService = new google.maps.DirectionsService();
-
     EventBus.$on("routes-data", (routes) => {
       this.map = new google.maps.Map(this.$refs["map"], {
         center: new google.maps.LatLng(-27.0266, -50.922),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       });
-
-      routes.forEach(({ origin, distance, duration, destination, color }) => {
+      routes.forEach(({ origin, destination, color }) => {
         directionsService.route(
           {
             origin: origin.address,
@@ -40,18 +37,13 @@ export default {
                 },
                 suppressPolylines: true, //ativação da linha que liga 1 marcador ao outro
               });
-
               this.createInfoWindowWith(origin, "marker alternate", color);
-
               const overviewPath = response.routes[0].overview_path;
               const middleIndex = parseInt(overviewPath.lenght / 2);
               const middleLoc = overviewPath[middleIndex];
-
               distanceDurationLabel.open(this.map, null);
-
               directionsRenderer.setDirections(response);
               directionsRenderer.setMap(this.map);
-
               this.createPolylineWith(
                 [
                   { lat: origin.lat, lng: origin.lng },
@@ -81,7 +73,6 @@ export default {
         content: `<div style="background-color:${color};padding:5px;"><i class="${icon} icon"></i> ${location.address}`,
         position: new google.maps.LatLng(location.lat, location.lng),
       });
-
       infoWindow.open(this.map, null);
     },
     createPolylineWith(path, color) {
@@ -107,15 +98,12 @@ export default {
   left: 0;
   background-color: green;
 }
-
 .gm-style-iw button {
   display: none !important;
 }
-
 .gm-style .gm-style-iw-c {
   padding: 0px !important;
 }
-
 .gm-style-iw-d {
   overflow: hidden !important;
 }

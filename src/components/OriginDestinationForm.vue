@@ -1,3 +1,4 @@
+<!--
 <template>
   <section class="origin-destination-form">
     <div class="ui form">
@@ -34,7 +35,7 @@
     </div>
   </section>
 </template>
-
+-->
 
  <style scoped>
 .origin-destination-form {
