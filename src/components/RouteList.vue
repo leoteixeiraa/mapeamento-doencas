@@ -3,7 +3,7 @@
     <div class="route-list-view-header">
       <h3 class="ui header">Lista de Enfermidades</h3>
 
-      <select @change="sortRoute($event)">
+      <!-- <select @change="sortRoute($event)">
         <option selected disabled>Ordenar</option>
         <optgroup label="Distancia">
           <option value="distance-asc">Mais perto</option>
@@ -13,7 +13,7 @@
           <option value="duration-asc">Mais Rápido</option>
           <option value="duration-desc">Mais Lento</option>
         </optgroup>
-      </select>
+      </select> -->
       <button class="ui button show-all" @click="showAllRoutesButtonPressed">
         Mostrar tudo
       </button>
