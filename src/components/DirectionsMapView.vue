@@ -70,7 +70,7 @@ export default {
   methods: {
     createInfoWindowWith(location, icon, color) {
       const infoWindow = new google.maps.InfoWindow({
-        content: `<div style="background-color:${color};padding:5px;"><i class="${icon} icon"></i> ${location.address}`,
+        content: `<div style="background-color:${color};padding:15px;"><i class="${icon} icon"></i>`,
         position: new google.maps.LatLng(location.lat, location.lng),
       });
       infoWindow.open(this.map, null);
