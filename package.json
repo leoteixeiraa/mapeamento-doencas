@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
     "firebase": "^8.2.4",
     "semantic-ui-css": "^2.4.1",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue": "^2.6.12",
+    "vue-router": "^3.0.1",
+    "vue-semantic-modal": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

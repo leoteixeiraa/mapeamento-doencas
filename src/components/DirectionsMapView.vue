@@ -59,7 +59,9 @@ export default {
                     lng: overviewPath[overviewPath.lenght - 1].lng(),
                   },
                 ],
-                color
+                color,
+                cadastroIndividualTransport.condicoesDeSaude
+                  .descricaoCausaInternacaoEm12Meses
               );
             }
           }

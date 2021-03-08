@@ -3,26 +3,13 @@
     <div class="route-list-view-header">
       <h3 class="ui header">Lista de Enfermidades</h3>
 
-      <!-- <select @change="sortRoute($event)">
-        <option selected disabled>Ordenar</option>
-        <optgroup label="Distancia">
-          <option value="distance-asc">Mais perto</option>
-          <option value="distance-desc">Mais Longe</option>
-        </optgroup>
-        <optgroup label="Duração">
-          <option value="duration-asc">Mais Rápido</option>
-          <option value="duration-desc">Mais Lento</option>
-        </optgroup>
-      </select> -->
       <button class="ui button show-all" @click="showAllRoutesButtonPressed">
         Mostrar tudo
       </button>
     </div>
-    <div
-      class="ui segment"
-      style="max-height: 900px; max-width: auto; overflow: auto"
-    >
-      <div class="ui divided items" style="max-width: auto; overflow: auto">
+
+    <div class="ui segment" style="max-height: 750px; overflow: auto">
+      <div class="ui divided items" style="overflow: auto">
         <div
           class="item"
           v-for="route in routes"
@@ -38,104 +25,36 @@
                 .nomeCidadao
             }}
           </div>
-
           <div>
-            <i class="address card alternate icon"></i>
-            <b>CNES: </b> {{ route.cnesDadoSerializado }}
-          </div>
-          <div>
-            <i class="pin alternate icon"></i>
-            <b>Micro Área: </b>
-            {{
-              route.cadastroIndividualTransport.identificacaoUsuarioCidadao
-                .microArea
-            }}
-          </div>
-
-          <div class="ui red horizontal label">
-            {{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .statusTemDiabetes
-                ? "Diabético"
-                : "Não Diabético"
-            }}
-          </div>
-
-          <a class="ui label">
-            Situação Peso
-            <div class="detail">
-              {{
-                route.cadastroIndividualTransport.condicoesDeSaude.situacaoPeso
-              }}
-            </div>
-          </a>
-          <div>
-            <b>Causa da Internação: </b
-            >{{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .descricaoCausaInternacaoEm12Meses
-            }}
-          </div>
-
-          <div>
-            <b>Outras Condições: </b
-            >{{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .descricaoOutraCondicao1
-            }}&#8212;{{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .descricaoOutraCondicao2
-            }}
-          </div>
-          <div class="ui green horizontal label">
-            {{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .statusTemDoencaRespiratoria
-                ? "Tem Doença Respiratória"
-                : "Não tem Doença Respiratória"
-            }}
-          </div>
-
-          <div class="ui horizontal label">
-            {{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .statusTemHanseniase
-                ? "Tem hanseníase"
-                : "Não tem hanseníase"
-            }}
-          </div>
-
-          <div class="ui horizontal label">
-            {{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .statusTemHipertensaoArterial
-                ? "Tem Hipertensão Arterial"
-                : "Não tem Hipertensão Arterial"
-            }}
-          </div>
-
-          <div class="ui horizontal label">
-            {{
-              route.cadastroIndividualTransport.condicoesDeSaude
-                .statusTemTuberculose
-                ? "Tem Tuberculose"
-                : "Não tem Tuberculose"
-            }}
+            <b-button @click="abrirModal(route)" v-b-modal.modal
+              >Abrir Modal</b-button
+            >
           </div>
         </div>
       </div>
+      <b-modal v-if="currentRoute" id="meuModal" title="BootstrapVue">
+        <p class="my-4">
+          {{
+            currentRoute.cadastroIndividualTransport.identificacaoUsuarioCidadao
+              .nomeCidadao
+          }}
+        </p>
+      </b-modal>
     </div>
   </section>
 </template>
+
 
 <script>
 import firebase from "firebase";
 import { EventBus } from "@/EventBus";
 
 export default {
+  components: {},
   data() {
     return {
       routes: [],
+      currentRoute: false,
     };
   },
   created() {
@@ -153,6 +72,10 @@ export default {
     });
   },
   methods: {
+    abrirModal(route) {
+      this.currentRoute = route;
+      this.$bvModal.show("meuModal");
+    },
     sortRoute(e) {
       const sortName = e.target.value.split("-")[0];
       const sortOrder = e.target.value.split("-")[1];
@@ -193,8 +116,14 @@ export default {
   padding: 10px;
 }
 
-.item {
-  padding: 10px;
+.ui.segment.item {
+  position: relative;
+  background: #fff;
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  margin: 1rem 0;
+  padding: 1em;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(34, 36, 38, 0.15);
   cursor: pointer;
 }
 .item:hover {
@@ -202,6 +131,6 @@ export default {
 }
 
 .show-all {
-  padding: 4px 10px;
+  padding: 4px 12px;
 }
 </style>
