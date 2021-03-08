@@ -3,6 +3,18 @@
     <div class="route-list-view-header">
       <h3 class="ui header">Lista de Enfermidades</h3>
 
+      <select @change="sortRoute($event)">
+        <option selected disabled>Ordenar</option>
+        <optgroup label="Cor">
+          <option value="color-asc">Cor Asc</option>
+          <option value="color-desc">Cor desc</option>
+        </optgroup>
+        <optgroup label="Duração">
+          <option value="duration-asc">Mais Rápido</option>
+          <option value="duration-desc">Mais Lento</option>
+        </optgroup>
+      </select>
+
       <button class="ui button show-all" @click="showAllRoutesButtonPressed">
         Mostrar tudo
       </button>
@@ -25,20 +37,111 @@
                 .nomeCidadao
             }}
           </div>
+          <!-- <div>
+            <i class="address card alternate icon"></i>
+            <b>CNES: </b> {{ route.cnesDadoSerializado }}
+          </div> -->
           <div>
             <b-button @click="abrirModal(route)" v-b-modal.modal
-              >Abrir Modal</b-button
+              >+Info</b-button
             >
           </div>
         </div>
       </div>
-      <b-modal v-if="currentRoute" id="meuModal" title="BootstrapVue">
-        <p class="my-4">
-          {{
+      <b-modal v-if="currentRoute" id="meuModal" title="Informações Detalhada">
+        <div>
+          <i class="male alternate icon"></i>
+          <b>Nome: </b
+          >{{
             currentRoute.cadastroIndividualTransport.identificacaoUsuarioCidadao
               .nomeCidadao
           }}
-        </p>
+        </div>
+
+        <div>
+          <i class="address card alternate icon"></i>
+          <b>CNES: </b> {{ currentRoute.cnesDadoSerializado }}
+        </div>
+        <div>
+          <i class="pin alternate icon"></i>
+          <b>Micro Área: </b>
+          {{
+            currentRoute.cadastroIndividualTransport.identificacaoUsuarioCidadao
+              .microArea
+          }}
+        </div>
+
+        <div class="ui red horizontal label">
+          {{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .statusTemDiabetes
+              ? "Diabético"
+              : "Não Diabético"
+          }}
+        </div>
+
+        <a class="ui label">
+          Situação Peso
+          <div class="detail">
+            {{
+              currentRoute.cadastroIndividualTransport.condicoesDeSaude
+                .situacaoPeso
+            }}
+          </div>
+        </a>
+        <div>
+          <b>Causa da Internação: </b
+          >{{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .descricaoCausaInternacaoEm12Meses
+          }}
+        </div>
+
+        <div>
+          <b>Outras Condições: </b
+          >{{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .descricaoOutraCondicao1
+          }}&#8212;{{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .descricaoOutraCondicao2
+          }}
+        </div>
+        <div class="ui green horizontal label">
+          {{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .statusTemDoencaRespiratoria
+              ? "Tem Doença Respiratória"
+              : "Não tem Doença Respiratória"
+          }}
+        </div>
+
+        <div class="ui horizontal label">
+          {{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .statusTemHanseniase
+              ? "Tem hanseníase"
+              : "Não tem hanseníase"
+          }}
+        </div>
+
+        <div class="ui horizontal label">
+          {{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .statusTemHipertensaoArterial
+              ? "Tem Hipertensão Arterial"
+              : "Não tem Hipertensão Arterial"
+          }}
+        </div>
+
+        <div class="ui horizontal label">
+          {{
+            currentRoute.cadastroIndividualTransport.condicoesDeSaude
+              .statusTemTuberculose
+              ? "Tem Tuberculose"
+              : "Não tem Tuberculose"
+          }}
+        </div>
       </b-modal>
     </div>
   </section>
