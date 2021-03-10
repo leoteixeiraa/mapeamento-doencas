@@ -4,15 +4,24 @@
       <h3 class="ui header">Lista de Enfermidades</h3>
 
       <select @change="sortRoute($event)">
-        <option selected disabled>Ordenar</option>
-        <optgroup label="Cor">
-          <option value="color-asc">Cor Asc</option>
-          <option value="color-desc">Cor desc</option>
+        <option selected disabled>Filtrar por Doença</option>
+        <optgroup label="Escolha uma doença abaixo">
+          <option value="color-#6EF0A0">Hanseniase</option>
+          <option value="color-#FA7846">Diabete</option>
+          <option value="color-#FAACF8">Hipertensão arterial</option>
+          <option value="color-#4C54D6">Cancêr</option>
+          <option value="color-#38C1FF">Tuberculose</option>
+          <option value="color-#45301B">AVC Derrame</option>
+          <option value="color-#ABAB82">Doença Cardíaca</option>
+          <option value="color-#605499">Infarto</option>
         </optgroup>
-        <optgroup label="Duração">
-          <option value="duration-asc">Mais Rápido</option>
-          <option value="duration-desc">Mais Lento</option>
-        </optgroup>
+        <!-- <optgroup label="Doença">
+          <option value="">Doença Respiratória</option>
+          <option value="">Hanseniase</option>
+          <option value="">Hipertensão Arterial</option>
+          <option value="">Tuberculose</option>
+          <option value="">Diabético</option>
+        </optgroup> -->
       </select>
 
       <button class="ui button show-all" @click="showAllRoutesButtonPressed">
@@ -182,10 +191,12 @@ export default {
     sortRoute(e) {
       const sortName = e.target.value.split("-")[0];
       const sortOrder = e.target.value.split("-")[1];
+      console.log(sortName);
+      console.log(sortOrder);
 
       const db = firebase.firestore();
       db.collection("routes")
-        .orderBy(sortName + ".value", sortOrder)
+        .where(sortName + "", "==", sortOrder)
         .get()
         .then((snap) => {
           this.routes = [];
