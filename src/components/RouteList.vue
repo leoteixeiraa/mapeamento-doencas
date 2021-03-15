@@ -15,21 +15,31 @@
           <option value="color-#ABAB82">Doença Cardíaca</option>
           <option value="color-#605499">Infarto</option>
         </optgroup>
-        <!-- <optgroup label="Doença">
-          <option value="">Doença Respiratória</option>
-          <option value="">Hanseniase</option>
-          <option value="">Hipertensão Arterial</option>
-          <option value="">Tuberculose</option>
-          <option value="">Diabético</option>
-        </optgroup> -->
       </select>
 
       <button class="ui button show-all" @click="showAllRoutesButtonPressed">
         Mostrar tudo
       </button>
     </div>
-
-    <div class="ui segment" style="max-height: 750px; overflow: auto">
+    <div @change="sortRoute($event)" class="ui divided selection list">
+      <a class="item">
+        <a style="background: #fa7846" class="ui circular label">Diabete</a>
+        <a style="background: #fae746" class="ui circular label"
+          >Doença Respiratória</a
+        >
+        <a style="background: #6ef0a0" class="ui circular label">Hanseníase</a>
+        <a style="background: #faacf8" class="ui circular label"
+          >Hipertensão arterial</a
+        >
+        <a style="background: #4c54d6; color: white" class="ui circular label"
+          >Câncer
+        </a>
+        <a style="background: #38c1ff" class="ui circular label"
+          >Tuberculose
+        </a>
+      </a>
+    </div>
+    <div class="ui segment" style="max-height: 650px; overflow: auto">
       <div class="ui divided items" style="overflow: auto">
         <div
           class="item"
@@ -178,8 +188,8 @@ export default {
         route.id = doc.id;
         this.routes.push(route);
 
-        console.log(doc.data());
-        console.log(doc.id);
+        //console.log(doc.data());
+        //console.log(doc.id);
       });
     });
   },
@@ -191,8 +201,8 @@ export default {
     sortRoute(e) {
       const sortName = e.target.value.split("-")[0];
       const sortOrder = e.target.value.split("-")[1];
-      console.log(sortName);
-      console.log(sortOrder);
+      // console.log(sortName);
+      //console.log(sortOrder);
 
       const db = firebase.firestore();
       db.collection("routes")

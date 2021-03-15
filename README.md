@@ -1,8 +1,11 @@
-# mapeamento-doencas
+# Mapeamento de Doenças Crônicas
 
-> A Vue.js project
+> Mapeamento de doenças crônicas utilizando dados de saúde em formato JSON. Ao importar o arquivo é realizado o mapeamento com o marcador colorido relacionado a doença. 
+### Base do Projeto
+![](src/assets/img/base_sistema.png)
 
-## Build Setup
+
+## Instale o Projeto
 
 ``` bash
 # install dependencies

@@ -107,7 +107,7 @@ export default {
           } else {
             const elements = response.data.rows[0].elements;
 
-            console.log(response);
+            //console.log(response);
 
             if (elements[0].status === "ZERO_RESULTS") {
               this.error = "No Results Found.";
