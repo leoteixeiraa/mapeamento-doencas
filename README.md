@@ -1,4 +1,4 @@
-![](src/assets/img/logo_IFC.png) ![](src/assets/img/esusP.png) 
+![](src/assets/img/Logo_IFC.png) ![](src/assets/img/esusP.png) 
 # Mapeamento de Doenças Crônicas
 
 > Mapeamento de doenças crônicas utilizando dados de saúde em formato JSON. Ao importar o arquivo é realizado o mapeamento com o marcador colorido relacionado a doença. 
