@@ -2,7 +2,8 @@
 ![](src/assets/img/Logo_IFC.png) ![](src/assets/img/esusP.png) 
 > Mapeamento de doenças crônicas utilizando dados de saúde em JSON no formato eSUS. Ao importar o arquivo no SGBD é realizado o mapeamento com o marcador colorido relacionado a doença. 
 ### Screenshot do projeto
-> As informações apresentadas são DADOS FICTÍCIOS DE SAÚDE.
+> As informações apresentadas são **DADOS FICTÍCIOS DE SAÚDE**.
+
 ![](src/assets/img/mapeamento.png)![](src/assets/img/modalInfo.png) 
 ### Estrutura do Projeto
 ![](src/assets/img/base_sistema.png)
@@ -27,6 +28,7 @@ npm run dev
 npm run build
 
 ```
-
+### 3ª Incluir informações ao Mapa
+> Para incluir novas informações ao mapa é necessário incluir o arquivo com as informações de saúde em [JSON](src/assets/dadosSaude/98693.json) ao SGBD Firebase. A biblioteca utilizada para realizar essa importação é o node-firestore-import-export, consulte a documentação [clicando aqui](https://www.npmjs.com/package/node-firestore-import-export). 
 ### Onde esse trabalho foi apresentado ?
 ![](src/assets/img/tcc.png) ![](src/assets/img/latinoWare.png) 

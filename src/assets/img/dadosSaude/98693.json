@@ -1,0 +1,153 @@
+{
+    "__collections__": {
+        "routes": {
+            "99104": {
+                "origin": {
+                    "address": "R. João Gueten, 70, Fraiburgo - SC, 89580-000",
+                    "lat": -27.02835,
+                    "lng": -50.91364
+                },
+                "codIbge": "2132170",
+                "color": "#FA7846",
+                "tipoDadoSerializado": "2",
+                "numLote": "7",
+                "versao": {
+                    "@major": "3",
+                    "@minor": "2",
+                    "@revision": "4"
+                },
+                "uuidDadoSerializado": "0019615-ced61f6f-0f37-48df-b894-1d1c729f8ad7",
+                "originadora": {
+                    "uuidInstalacao": "TREINAMENTO",
+                    "nomeOuRazaoSocial": "ADMINISTRADOR INSTALAÇÃO",
+                    "contraChave": "TREINAMENTO",
+                    "versaoSistema": "3.2.18",
+                    "nomeBancoDados": "Oracle",
+                    "cpfOuCnpj": "01234567890"
+                },
+                "ineDadoSerializado": "0000471828",
+                "destination": {
+                    "lat": -27.0237491189679,
+                    "lng": -50.921480414824735,
+                    "address": "Av. Caçador, 40 - CENTRO, Fraiburgo - SC, 89580-000"
+                },
+                "cadastroIndividualTransport": {
+                    "emSituacaoDeRua": {
+                        "statusTemAcessoHigienePessoalSituacaoRua": true,
+                        "origemAlimentoSituacaoRua": [
+                            "40",
+                            "37"
+                        ],
+                        "tempoSituacaoRua": "17",
+                        "statusPossuiReferenciaFamiliar": false,
+                        "grauParentescoFamiliarFrequentado": "avós",
+                        "higienePessoalSituacaoRua": [
+                            "44",
+                            "42"
+                        ],
+                        "statusSituacaoRua": true,
+                        "statusAcompanhadoPorOutraInstituicao": true,
+                        "statusVisitaFamiliarFrequentemente": true,
+                        "outraInstituicaoQueAcompanha": "outra instituição",
+                        "statusRecebeBeneficio": false,
+                        "quantidadeAlimentacoesAoDiaSituacaoRua": "35"
+                    },
+                    "uuid": "0019615-ced61f6f-0f37-48df-b894-1d1c729f8ad7",
+                    "informacoesSocioDemograficas": {
+                        "statusParticipaGrupoComunitario": true,
+                        "statusMembroPovoComunidadeTradicional": true,
+                        "povoComunidadeTradicional": "CERRADO",
+                        "statusFrequentaBenzedeira": true,
+                        "grauInstrucaoCidadao": "55",
+                        "situacaoMercadoTrabalhoCidadao": "66",
+                        "statusPossuiPlanoSaudePrivado": true,
+                        "statusFrequentaEscola": true,
+                        "ocupacaoCodigoCbo2002": "252105",
+                        "statusDesejaInformarOrientacaoSexual": true,
+                        "orientacaoSexualCidadao": "148",
+                        "statusTemAlgumaDeficiencia": true,
+                        "identidadeGeneroCidadao": "151",
+                        "statusDesejaInformarIdentidadeGenero": true,
+                        "deficienciasCidadao": [
+                            "12",
+                            "16"
+                        ]
+                    },
+                    "fichaAtualizada": false,
+                    "headerTransport": {
+                        "profissionalCNS": "898001161481488",
+                        "ine": "0000471828",
+                        "codigoIbgeMunicipio": "4205407",
+                        "cnes": "98693",
+                        "cboCodigo_2002": "515105",
+                        "dataAtendimento": "1549119600000"
+                    },
+                    "condicoesDeSaude": {
+                        "statusEstaAcamado": false,
+                        "statusUsaPlantaMedicinais": true,
+                        "doencaRespiratoria": "30",
+                        "statusTemTeveCancer": false,
+                        "maternidadeDeReferencia": "maternidade",
+                        "statusTemHanseniase": false,
+                        "statusTeveInternadoEm12Meses": true,
+                        "statusEhGestante": false,
+                        "doencaRins": "27",
+                        "statusTemHipertensaoArterial": false,
+                        "statusEhDependenteOutrasDrogas": false,
+                        "statusTemDiabetes": true,
+                        "statusTemDoencaRespiratoria": false,
+                        "descricaoPlantasMedicinaisUsadas": "macela e boldo",
+                        "descricaoCausaInternacaoEm12Meses": "DST",
+                        "statusTeveAvcDerrame": false,
+                        "situacaoPeso": "21",
+                        "statusDiagnosticoMental": true,
+                        "statusTemTuberculose": false,
+                        "statusEhFumante": false,
+                        "statusEhDependenteAlcool": false,
+                        "doencaCardiaca": "26",
+                        "descricaoOutraCondicao1": "Asma",
+                        "descricaoOutraCondicao2": "Bronquite",
+                        "statusTeveInfarto": false,
+                        "statusTeveDoencaCardiaca": true,
+                        "statusEstaDomiciliado": false,
+                        "statusTemTeveDoencasRins": true
+                    },
+                    "uuidFichaOriginadora": "0019615-ced61f6f-0f37-48df-b894-1d1c729f8ad7",
+                    "saidaCidadaoCadastro": [],
+                    "tpCdsOrigem": "3",
+                    "identificacaoUsuarioCidadao": {
+                        "desconheceNomePai": false,
+                        "desconheceNomeMae": false,
+                        "nomeMaeCidadao": "MARTA DOS SANTOS",
+                        "nomeCidadao": "Adelina Chaves Oleiro",
+                        "emailCidadao": "fci.gmail@gmail.com",
+                        "codigoIbgeMunicipioNascimento": "4205407",
+                        "nomePaiCidadao": "PEDRO DOS SANTOS",
+                        "microArea": "02",
+                        "stForaArea": false,
+                        "statusEhResponsavel": true,
+                        "cpfCidadao": "31422733521",
+                        "etnia": "5",
+                        "racaCorCidadao": "5",
+                        "nacionalidadeCidadao": "1",
+                        "sexoCidadao": "1",
+                        "paisNascimento": "31",
+                        "telefoneCelular": "99999999999",
+                        "dataNascimentoCidadao": "662742000000"
+                    },
+                    "statusTermoRecusaCadastroIndividualAtencaoBasica": false
+                },
+                "cnesDadoSerializado": "98693",
+                "remetente": {
+                    "versaoSistema": "3.2.18",
+                    "cpfOuCnpj": "01234567890",
+                    "nomeBancoDados": "Oracle",
+                    "contraChave": "TREINAMENTO",
+                    "nomeOuRazaoSocial": "ADMINISTRADOR INSTALAÇÃO",
+                    "uuidInstalacao": "TREINAMENTO"
+                },
+                "__collections__": {}
+            }
+        }
+    }
+}
