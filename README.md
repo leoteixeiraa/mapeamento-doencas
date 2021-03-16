@@ -2,9 +2,9 @@
 ![](src/assets/img/Logo_IFC.png) ![](src/assets/img/esusP.png) 
 > Mapeamento de doenças crônicas utilizando dados de saúde em JSON no formato eSUS. Ao importar o arquivo no SGBD é realizado o mapeamento com o marcador colorido relacionado a doença. 
 ### Screenshot do projeto
+> As informações apresentadas são DADOS FICTÍCIOS DE SAÚDE.
 ![](src/assets/img/mapeamento.png)![](src/assets/img/modalInfo.png) 
-![](src/assets/img/filtroMAP.png)
-### Mapa do Projeto
+### Estrutura do Projeto
 ![](src/assets/img/base_sistema.png)
 
 
