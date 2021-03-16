@@ -5,28 +5,25 @@
 ![](src/assets/img/base_sistema.png)
 
 
-### Configuração do projeto
+## Instalação & Configuração do Projeto
+
+### 1ª etapa - Configuração
 > Configure os dados das credencias para acesso ao SGBD Firebase no arquivo [main.js](src/main.js)
 
 
-
-## Instalação do Projeto
+### 2ª etapa - Instalação
 
 ``` bash
 # Instale as dependências
 npm install
 
-
-# serve with hot reload at localhost:8080
+# Rode o projeto em localhost:8080 em modo desenvolvimento
 npm run dev
 
-# build for production with minification
+# construir para produção com minimização
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Onde esse trabalho foi apresentado ?
+![](src/assets/img/tcc.png) ![](src/assets/img/latinoWare.png) 

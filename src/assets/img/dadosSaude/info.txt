@@ -1,0 +1,17 @@
+Importação FireBase
+https://github.com/jloosli/node-firestore-import-export#import
+https://www.youtube.com/watch?v=gPzs6t3tQak
+
+
+
+--> firestore-import -a todoApiKey.json -b <arquivo.json> //importar
+
+--> firestore-clear -a todoApiKey.json //Apaga todos os dados do banco de dados
+
+
+--> firestore-export -a todoApiKey.json -b <nomeParaOArquivo.json> -p //exportar todos os dados do banco
+
+-a, --accountCredentials <path> - caminho para o arquivo JSON de credenciais da conta do Google Cloud. Se ausente, irá olhar para a variável de ambiente GOOGLE_APPLICATION_CREDENTIALS para o caminho.
+-b, --backupFile <path> - Nome do arquivo com dados de backup. (por exemplo, backups / full-backup.json).
+-n, --nodePath <path> - Caminho para o nó do banco de dados a ser iniciado (por exemplo, coleçãoA / docB / coleçãoC).
+-y, --yes - Importação autônoma sem confirmação (como clicar em "y" na linha de comando).
