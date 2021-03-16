@@ -18,12 +18,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 var firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyDMThZI56-xB5gIq_CxF9dnceZqO-XcUrE",
+  authDomain: "saudemap-4fd5f.firebaseapp.com",
+  projectId: "saudemap-4fd5f",
+  storageBucket: "saudemap-4fd5f.appspot.com",
+  messagingSenderId: "597349920133",
+  appId: "1:597349920133:web:916ede6b6433d30fc8a8ec"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
