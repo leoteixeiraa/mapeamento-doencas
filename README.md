@@ -32,7 +32,7 @@ npm run build
 > Para incluir novas informações ao mapa é necessário incluir o arquivo com as informações de saúde em [JSON](src/assets/dadosSaude/98693.json) ao SGBD Firebase. A biblioteca utilizada para realizar essa importação é o node-firestore-import-export, consulte a documentação [clicando aqui](https://www.npmjs.com/package/node-firestore-import-export). 
 
 ### Deploy em Producão via Heroku
-Para acessar o sistema em produção [clique aqui](https://mapeamento-doencas.herokuapp.com/)
+Para acessar o **sistema em produção** [CLIQUE AQUI](https://mapeamento-doencas.herokuapp.com/)
 
 ### Onde esse trabalho foi apresentado ?
 ![](src/assets/img/tcc.png) ![](src/assets/img/latinoWare.png) 
