@@ -33,6 +33,6 @@ npm run build
 ### Onde esse trabalho foi apresentado ?
 ![](src/assets/img/tcc.png) ![](src/assets/img/latinoWare.png) 
 ### Autores e integrantes do projeto
-1. Leonardo Venâncio Teixeira. [Acessar Lattes](http://lattes.cnpq.br/0437092313796879) [Acessar Linkedln](https://www.linkedin.com/in/leonardo-teixeira-110130105/)
+1. Leonardo Venâncio Teixeira. [Acessar Lattes](http://lattes.cnpq.br/0437092313796879) ou [Acessar Linkedln](https://www.linkedin.com/in/leonardo-teixeira-110130105/)
 2. Prof. Luiz Leandro dos Reis Fortaleza [Acessar Lattes](http://lattes.cnpq.br/0374659622170312)
 3. Prof. Marlon Cordeiro Domenech [Acessar Lattes](http://lattes.cnpq.br/8493837577432710)
