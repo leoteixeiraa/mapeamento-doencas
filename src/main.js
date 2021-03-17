@@ -24,6 +24,7 @@ var firebaseConfig = {
   storageBucket: "saudemap-4fd5f.appspot.com",
   messagingSenderId: "597349920133",
   appId: "1:597349920133:web:916ede6b6433d30fc8a8ec"
+
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
