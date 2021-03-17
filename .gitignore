@@ -4,6 +4,7 @@ node_modules/
 /src/main.js
 ./src/main.js
 src/main.js
+main.js
 
 # local env files
 .env.local
